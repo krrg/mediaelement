@@ -3070,7 +3070,8 @@ if (typeof jQuery != 'undefined') {
 				});
 
 				// listen for key presses
-				t.globalBind('keydown', function(e) {
+				t.globalBind('keydown', function(event) {
+					player.hasFocus = $(event.target).closest('.mejs-container').length !== 0;
 					return t.onkeydown(player, media, e);
 				});
 
@@ -3214,7 +3215,7 @@ if (typeof jQuery != 'undefined') {
 				//
 				t.setPlayerSize(t.width, t.height);
 				t.setControlsSize();
-			}, 50);            
+			}, 50);
 		}
 	};
 
